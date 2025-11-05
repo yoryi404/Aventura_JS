@@ -10,11 +10,24 @@
     --color-accent: rgb(186, 0, 180);
 }
 
+#tittle {
+    color: white;
+    display: flex;
+    justify-content: center;
+    margin: 16px;
+}
+
 body {
     background-color: var(--color-primary);
-    min-height: 100vh;
+    min-height: 10 0vh;
     display: grid;
     grid-template-rows: auto 1fr auto;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 footer {
@@ -24,7 +37,6 @@ footer {
 
 #inventory-container {
     background-color: var(--color-secondary);
-    margin: 5%;
     display: flex;
     gap: 4px;
     padding: 4px;
@@ -48,35 +60,40 @@ footer {
 }
 
 #scene-1 {
-    height: 90%;
+    height: 60%;
+    width: 50%;
     margin: 32px;
     background-color: white;
+}
+
+#scene-1-stats {
+    height: 20%;
 }
 
 #scene-1>div:first-child {
     height: 40%;
     display: flex;
     justify-content: space-between;
-    padding: 16px;
 }
 
-    #scene-1>div:nth-child(2) {
-        height: 50%;
-    }
+#scene-1>div:nth-child(2) {
+    height: 50%;
+}
 
-    #scene-1>div:nth-child(3) {
-        height: 10%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+#scene-1>div:nth-child(3) {
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-#scene-1 h2{
+#scene-1 h2 {
     width: 30%;
     font-size: 2.5rem;
 }
-#scene-1-stats>div{
-    height: 64px;
+
+#scene-1-stats>div {
+    height: 56px;
     margin: 8px;
     border: 1px solid black;
     padding: 8px;
@@ -85,6 +102,7 @@ footer {
     display: flex;
     align-items: center;
 }
-#scene-1-stats>p{
+
+#scene-1-stats>p {
     font-size: 2rem;
 }
