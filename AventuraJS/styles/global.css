@@ -13,9 +13,10 @@
 /* Para cambiar de escenas */
 
 .scene {
-    display: none;
+  display: none;
 }
 
 .scene.active {
-    display: block;
+  display: block;
 }
+

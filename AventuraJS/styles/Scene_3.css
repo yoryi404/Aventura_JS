@@ -107,3 +107,19 @@ footer {
 #scene-1-stats>p {
     font-size: 2rem;
 }
+
+#scene-3 #btn-to-scene-1 {
+    margin-top: 20px;
+    width: 120px;
+    padding: 8px;
+    font-size: 14px;
+    background: white;
+    border: 1px solid black;
+    box-shadow: 1px 1px black;
+    cursor: pointer;
+}
+
+#scene-3 #btn-to-scene-1:hover {
+    transform: scale(1.1);
+    transition: 0.1s ease-in-out;
+}

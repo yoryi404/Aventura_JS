@@ -5,42 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aventura Cyberpunk</title>
-    <link rel="stylesheet" href="AventuraJS/styles/global.css">
+<link rel="stylesheet" href="AventuraJS/styles/global.css">
     <link rel="stylesheet" href="AventuraJS/styles/Scene_1.css">
     <link rel="stylesheet" href="AventuraJS/styles/Scene_2.css">
-    <script src="js/main.js" defer></script>
+    <!-- main.js como módulo -->
+    <script type="module" src="AventuraJS/js/main.js" defer></script>
 </head>
 
 <body>
-
     <section id="scene-1" class="scene active">
         <header>
             <h1 id="tittle">Aventura en el Reino de JS</h1>
         </header>
 
         <div id="scene-1-player">
-            <img src="/AventuraJS/characters/Personaje_Principal.png" alt="Personaje_Principal" title="Marilynn">
+            <img src="characters/Personaje_Principal.png" alt="Personaje_Principal" title="Marilynn">
             <h2>Marilynn</h2>
         </div>
 
         <div id="scene-1-stats">
-            <div>
-                <p>Ataque:</p>
-            </div>
-            <div>
-                <p>Defensa:</p>
-            </div>
-            <div>
-                <p>Puntos:</p>
-            </div>
-            <div>
-                <p>Vida inicial:100</p>
-            </div>
+            <div><p>Ataque:</p></div>
+            <div><p>Defensa:</p></div>
+            <div><p>Puntos:</p></div>
+            <div><p>Vida inicial:100</p></div>
         </div>
 
         <button id="btn-to-scene-2">Continuar</button>
     </section>
-
 
     <section id="scene-2" class="scene">
         <header>
@@ -49,9 +40,10 @@
 
         <main>
             <section class="full-container">
-                <section class="img-container">
+                <div class="img-container">
+
                     <div class="img-store">
-                        <img src="objects/Cuchilla.png" alt="Hacha">
+                        <img src="objects/Armadura.png" alt="Armadura">
                         <p>5€</p>
                         <button>Comprar</button>
                     </div>
@@ -63,7 +55,7 @@
                     </div>
 
                     <div class="img-store">
-                        <img src="objects/Fusil_1.png" alt="Fusil">
+                        <img src="objects/Cuchilla.png" alt="Cuchilla">
                         <p>5€</p>
                         <button>Comprar</button>
                     </div>
@@ -85,11 +77,9 @@
                         <p>5€</p>
                         <button>Comprar</button>
                     </div>
-                </section>
 
-                <div class="continue-div">
-                    <button id="btn-to-scene-3">Continuar</button>
                 </div>
+                <button id="btn-to-scene-3">Continuar</button>
             </section>
         </main>
 
@@ -105,6 +95,15 @@
         </footer>
     </section>
 
-</body>
+    <section id="scene-3" class="scene">
+        <header>
+            <h1>Escena 3</h1>
+        </header>
 
+        <p></p>
+
+        <button id="btn-to-scene-1">Volver al inicio</button>
+    </section>
+
+</body>
 </html>

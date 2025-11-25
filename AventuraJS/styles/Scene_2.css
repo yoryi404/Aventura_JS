@@ -1,6 +1,6 @@
 /* SCENE 2 — SOLO afecta a #scene-2 */
 
-#scene-2 {
+#scene-2.active {
     background-color: var(--color-primary);
     min-height: 100vh;
     padding: 16px;
@@ -140,16 +140,18 @@
 }
 
 /* BOTÓN CONTINUAR */
-#scene-2 #continue-btn {
-    padding: 10px 20px;
-    background-color: var(--color-accent);
-    color: white;
-    border: none;
-    border-radius: 8px;
+#scene-2 #btn-to-scene-3 {
+    margin-top: 20px;
+    width: 120px;
+    padding: 8px;
+    font-size: 14px;
+    background: white;
+    border: 1px solid black;
+    box-shadow: 1px 1px black;
     cursor: pointer;
-    margin: 16px auto;
 }
 
-#scene-2 #continue-btn:hover {
-    background-color: darkmagenta;
+#scene-2 #btn-to-scene-3:hover {
+    transform: scale(1.1);
+    transition: 0.1s ease-in-out;
 }

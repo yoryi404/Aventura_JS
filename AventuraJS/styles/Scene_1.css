@@ -1,6 +1,6 @@
 /* SCENE 1 — SOLO estilos que aplican dentro de #scene-1 */
 
-#scene-1 {
+#scene-1.active {
     width: 100%;
     height: 100vh;
     background-color: var(--color-primary);
@@ -60,7 +60,7 @@
 }
 
 /* --- BOTÓN --- */
-#scene-1 #continue-btn {
+#scene-1 #btn-to-scene-2 {
     margin-top: 20px;
     width: 120px;
     padding: 8px;
@@ -71,7 +71,7 @@
     cursor: pointer;
 }
 
-#scene-1 #continue-btn:hover {
+#scene-1 #btn-to-scene-2:hover {
     transform: scale(1.1);
     transition: 0.1s ease-in-out;
 }
