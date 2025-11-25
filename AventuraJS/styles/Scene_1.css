@@ -1,27 +1,14 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* SCENE 1 — SOLO estilos que aplican dentro de #scene-1 */
 
-:root {
-    --color-primary: #2b2888;
-    --color-secondary: #c2baba;
-}
-
-body {
-    background-color: var(--color-primary);
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* --- CONTENEDOR PRINCIPAL --- */
 #scene-1 {
     width: 100%;
-    height: 100%;
-    margin: 8px;
+    height: 100vh;
+    background-color: var(--color-primary);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 #tittle {
@@ -33,7 +20,9 @@ body {
 /* --- PLAYER BOX --- */
 #scene-1-player {
     display: flex;
+    width: 80%;
     justify-content: space-between;
+    align-items: center;
 }
 
 #scene-1-player img {
@@ -42,10 +31,8 @@ body {
     background: white;
 }
 
-/* nombre */
 #scene-1-player h2 {
     color: white;
-    margin-top: 10px;
     font-size: 36px;
     font-weight: bold;
 }
@@ -69,24 +56,22 @@ body {
     box-shadow: 1px 1px black;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 /* --- BOTÓN --- */
-#continue-btn {
+#scene-1 #continue-btn {
     margin-top: 20px;
     width: 120px;
     padding: 8px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
     font-size: 14px;
     background: white;
     border: 1px solid black;
     box-shadow: 1px 1px black;
+    cursor: pointer;
 }
 
-#continue-btn:hover{
-    cursor: pointer;
+#scene-1 #continue-btn:hover {
     transform: scale(1.1);
     transition: 0.1s ease-in-out;
 }
