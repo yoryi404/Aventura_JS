@@ -52,21 +52,58 @@ export const PRODUCTOS = [
         tipo: TIPOS.ARMA,
         bonus: 35
     },
-    
+
     // ARMADURAS
     {
         nombre: "Armadura Ligera",
         imagen: "./AventuraJS/objects/Armadura.png",
-        precio: 400,
+        precio: 200,
+        rareza: RAREZAS.COMUN,
+        tipo: TIPOS.ARMADURA,
+        bonus: 8
+    },
+    {
+        nombre: "Robot Ayduante",
+        imagen: "./AventuraJS/objects/robot_ayudante.png",
+        precio: 500,
         rareza: RAREZAS.COMUN,
         tipo: TIPOS.ARMADURA,
         bonus: 12
+    }, {
+        nombre: "Brazo mecanico",
+        imagen: "./AventuraJS/objects/Brazo_mecanico.png",
+        precio: 500,
+        rareza: RAREZAS.COMUN,
+        tipo: TIPOS.ARMADURA,
+        bonus: 10
+    },{
+        nombre: "Escudo",
+        imagen: "./AventuraJS/objects/escudo.png",
+        precio: 500,
+        rareza: RAREZAS.COMUN,
+        tipo: TIPOS.ARMADURA,
+        bonus: 10
+    },{
+        nombre: "Gafas",
+        imagen: "./AventuraJS/objects/gafas-cyberpunk.png",
+        precio: 500,
+        rareza: RAREZAS.COMUN,
+        tipo: TIPOS.ARMADURA,
+        bonus: 10
     },
-    
+
     // CONSUMIBLES
     {
         nombre: "Poción Pequeña",
         imagen: "./AventuraJS/objects/Pocion.png",
+        precio: 200,
+        rareza: RAREZAS.COMUN,
+        tipo: TIPOS.CONSUMIBLE,
+        bonus: 20
+    },
+    {
+        nombre: "Energitica",
+        imagen: "./AventuraJS/objects/Energetica.png",
         precio: 200,
         rareza: RAREZAS.COMUN,
         tipo: TIPOS.CONSUMIBLE,
