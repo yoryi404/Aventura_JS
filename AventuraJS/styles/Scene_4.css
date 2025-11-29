@@ -1,0 +1,152 @@
+#scene-4 {
+    width: 100%;
+    min-height: 100vh;
+    background: #c62828;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+#scene-4 header {
+    width: 100%;
+    text-align: center;
+}
+
+#scene-4 main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.grid-enemigos {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 30px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.enemy-card {
+    background: rgba(198, 40, 40, 0.3);
+    border: 3px solid #ff5252;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.enemy-card.boss {
+    border-color: #ffd700;
+    background: rgba(255, 215, 0, 0.2);
+}
+
+.enemy-card.boss::after {
+    content: 'JEFE FINAL';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ffd700;
+    color: #000;
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+.enemy-card {
+    position: relative;
+}
+
+.enemy-card img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+}
+
+.enemy-card h3 {
+    font-size: 1.3rem;
+    color: #ffeb3b;
+}
+
+.enemy-stats {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.enemy-stat {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 8px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.enemy-stat span {
+    color: var()
+    font-weight: bold;
+}
+
+#scene-4 button {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background: #ff5252;
+    color: white;
+    border: 3px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+}
+#scene-4 button:hover{
+    transform: scale(1.05);
+    transition: 0.2s ease-in-out;
+}
+@media (min-width: 1024px) {
+    .grid-enemigos {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 720px) and (max-width: 1024px) {
+    .grid-enemigos {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 360px) and (max-width: 720px) {
+    .grid-enemigos {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .enemy-card img {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 360px) {
+    .grid-enemigos {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .enemy-card img {
+        width: 90px;
+        height: 90px;
+    }
+}
