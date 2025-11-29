@@ -1,0 +1,191 @@
+#scene-5 {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1a237e 0%, #000051 100%);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+#scene-5 header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#scene-5 main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+#arena-batalla {
+    background: rgba(0, 0, 0, 0.5);
+    border: 3px solid #ffeb3b;
+    border-radius: 20px;
+    padding: 30px;
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.combatiente {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+}
+
+.combatiente img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 4px solid #ffeb3b;
+    object-fit: cover;
+}
+
+.combatiente.attacking img {
+    transform: scale(1.2);
+    transition: transform 0.3s;
+}
+
+.info-combate {
+    text-align: center;
+    width: 100%;
+}
+
+.info-combate h3 {
+    color: white;
+    font-size: 1.5rem;
+    margin: 0 0 10px 0;
+}
+
+.barra-vida {
+    width: 100%;
+    height: 25px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid white;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.relleno-vida {
+    height: 100%;
+    background: #4caf50;
+    transition: width 0.5s ease;
+}
+
+#enemy-health-bar {
+    background: #f44336;
+}
+
+.info-combate p {
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+.separador-vs {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffeb3b;
+}
+
+#battle-result {
+    background: white;
+    border: 4px solid #4caf50;
+    border-radius: 15px;
+    padding: 30px;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+#battle-result.defeat {
+    border-color: #f44336;
+}
+
+#battle-result h2 {
+    font-size: 2rem;
+    margin: 0 0 15px 0;
+    color: #4caf50;
+}
+
+#battle-result.defeat h2 {
+    color: #f44336;
+}
+
+#battle-result p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #333;
+}
+
+#scene-5 footer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+#scene-5 button {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#btn-continue-battle {
+    background: #2196f3;
+}
+
+#btn-to-scene-6 {
+    background: #4caf50;
+}
+
+@media (max-width: 720px) {
+    #arena-batalla {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .combatiente img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .separador-vs {
+        font-size: 2rem;
+    }
+
+    #scene-5 footer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #scene-5 button {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 360px) {
+    .combatiente img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .info-combate h3 {
+        font-size: 1.2rem;
+    }
+}
