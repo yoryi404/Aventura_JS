@@ -207,3 +207,106 @@ function iniciarBatallaConEnemigo(index) {
         mostrarResultadoBatalla(resultado, enemigo);
     }, 500);
 }
+
+function mostrarResultadoBatalla(resultado, enemigo) {
+    const battleResult = document.getElementById("battle-result");
+    
+    if (resultado.ganador === "jugador") {
+        jugador.sumarPuntos(resultado.puntos);
+        
+        const esJefe = JEFES.some(j => j.nombre === enemigo.nombre);
+        if (esJefe) {
+            jefesDerrotados++;
+        } else {
+            enemigosDerrotados++;
+        }
+        
+        actualizarBarraVida("enemy", 0, enemigo.vida);
+        
+        battleResult.classList.remove("hidden", "defeat");
+        battleResult.innerHTML = `
+            <h2>¡Victoria!</h2>
+            <p>Has derrotado a ${enemigo.nombre}</p>
+            <p>+${resultado.puntos} puntos</p>
+            <p>Puntuación total: ${jugador.puntos}</p>
+        `;
+        
+        enemigoActualIndex++;
+        if (enemigoActualIndex < enemigosActuales.length) {
+            const btnContinue = document.getElementById("btn-continue-battle");
+            btnContinue.classList.remove("hidden");
+            btnContinue.onclick = () => {
+                btnContinue.classList.add("hidden");
+                iniciarBatallaConEnemigo(enemigoActualIndex);
+            };
+        } else {
+            const btnFinal = document.getElementById("btn-to-scene-6");
+            btnFinal.classList.remove("hidden");
+            btnFinal.onclick = () => mostrarResultadoFinal();
+        }
+    } else {
+        actualizarBarraVida("player", 0, jugador.obtenerVidaTotal());
+        
+        battleResult.classList.remove("hidden");
+        battleResult.classList.add("defeat");
+        battleResult.innerHTML = `
+            <h2>Derrota...</h2>
+            <p>Has sido derrotado por ${enemigo.nombre}</p>
+            <p>Puntuación final: ${jugador.puntos}</p>
+        `;
+        
+        const btnFinal = document.getElementById("btn-to-scene-6");
+        btnFinal.classList.remove("hidden");
+        btnFinal.onclick = () => mostrarResultadoFinal();
+    }
+}
+
+function actualizarBarraVida(tipo, vidaActual, vidaMaxima) {
+    const porcentaje = Math.max(0, (vidaActual / vidaMaxima) * 100);
+    document.getElementById(`${tipo}-health-bar`).style.width = `${porcentaje}%`;
+    document.getElementById(`${tipo}-combat-health`).textContent = `${Math.max(0, Math.floor(vidaActual))} / ${vidaMaxima}`;
+}
+
+function mostrarResultadoFinal() {
+    showScene("scene-6");
+    
+    const rango = distinguirJugador(jugador.puntos);
+    
+    document.getElementById("player-rank").textContent = rango.toUpperCase();
+    document.getElementById("final-points").textContent = jugador.puntos;
+    document.getElementById("enemies-defeated").textContent = enemigosDerrotados;
+    document.getElementById("bosses-defeated").textContent = jefesDerrotados;
+    
+    const rankDisplay = document.getElementById("mostrar-rango");
+    if (rango === "Novato") {
+        rankDisplay.classList.add("novato");
+    } else {
+        rankDisplay.classList.remove("novato");
+        lanzarConfeti();
+    }
+}
+
+function lanzarConfeti() {
+    const duracion = 3000;
+    const fin = Date.now() + duracion;
+
+    const intervalo = setInterval(() => {
+        if (Date.now() > fin) {
+            clearInterval(intervalo);
+            return;
+        }
+
+        confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 }
+        });
+    }, 250);
+}
+
+function reiniciarJuego() {
+    jugador.reiniciar();
+    document.getElementById("inventory-container").innerHTML = "";
+    inicializarEscena1();
+    showScene("scene-1");
+}
