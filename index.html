@@ -1,37 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aventura Cyberpunk</title>
-<link rel="stylesheet" href="AventuraJS/styles/global.css">
-    <link rel="stylesheet" href="AventuraJS/styles/Scene_1.css">
-    <link rel="stylesheet" href="AventuraJS/styles/Scene_2.css">
-    <!-- main.js como módulo -->
-    <script type="module" src="AventuraJS/js/main.js" defer></script>
+    <link rel="stylesheet" href="./AventuraJS/styles/global.css">
+    <link rel="stylesheet" href="./AventuraJS/styles/Scene_1.css">
+    <link rel="stylesheet" href="./AventuraJS/styles/Scene_2.css">
+    <link rel="stylesheet" href="./AventuraJS/styles/Scene_3.css">
+    <link rel="stylesheet" href="./AventuraJS/styles/Scene_4.css">
+    <link rel="stylesheet" href="./AventuraJS/styles/Scene_5.css">
+    <link rel="stylesheet" href="./AventuraJS/styles/Scene_6.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script type="module" src="./AventuraJS/js/main.js"></script>
 </head>
 
 <body>
+
+<!-- ESCENA 1 -->
+
     <section id="scene-1" class="scene active">
         <header>
-            <h1 id="tittle">Aventura en el Reino de JS</h1>
+            <h1 id="titulo">Aventura en el Reino de JS</h1>
         </header>
 
-        <div id="scene-1-player">
-            <img src="characters/Personaje_Principal.png" alt="Personaje_Principal" title="Marilynn">
+        <div id="jugador-escena-1">
+            <img src="./AventuraJS/characters/Personaje_Principal.png" alt="Personaje Principal">
             <h2>Marilynn</h2>
         </div>
 
-        <div id="scene-1-stats">
-            <div><p>Ataque:</p></div>
-            <div><p>Defensa:</p></div>
-            <div><p>Puntos:</p></div>
-            <div><p>Vida inicial:100</p></div>
+        <div id="estadisticas-escena-1">
+            <div><p>Ataque: <span id="ataque-inicial">0</span></p></div>
+            <div><p>Defensa: <span id="defensa-inicial">0</span></p></div>
+            <div><p>Puntos: <span id="puntos-inicial">0</span></p></div>
+            <div><p>Vida: <span id="vida-inicial">100</span></p></div>
         </div>
 
         <button id="btn-to-scene-2">Continuar</button>
     </section>
+
+<!-- ESCENA 2 -->
 
     <section id="scene-2" class="scene">
         <header>
@@ -39,71 +48,135 @@
         </header>
 
         <main>
-            <section class="full-container">
-                <div class="img-container">
-
-                    <div class="img-store">
-                        <img src="objects/Armadura.png" alt="Armadura">
-                        <p>5€</p>
-                        <button>Comprar</button>
-                    </div>
-
-                    <div class="img-store">
-                        <img src="objects/Dagger.png" alt="Daga">
-                        <p>5€</p>
-                        <button>Comprar</button>
-                    </div>
-
-                    <div class="img-store">
-                        <img src="objects/Cuchilla.png" alt="Cuchilla">
-                        <p>5€</p>
-                        <button>Comprar</button>
-                    </div>
-
-                    <div class="img-store">
-                        <img src="objects/Fusil_2.png" alt="Fusil 2">
-                        <p>5€</p>
-                        <button>Comprar</button>
-                    </div>
-
-                    <div class="img-store">
-                        <img src="objects/Pistola.png" alt="Pistola">
-                        <p>5€</p>
-                        <button>Comprar</button>
-                    </div>
-
-                    <div class="img-store">
-                        <img src="objects/Katana.png" alt="Katana">
-                        <p>5€</p>
-                        <button>Comprar</button>
-                    </div>
-
-                </div>
+            <section class="contenedor-mercado">
+                <div class="grid-productos" id="productos-grid"></div>
                 <button id="btn-to-scene-3">Continuar</button>
             </section>
         </main>
 
         <footer>
-            <div id="inventory-container">
-                <div class="item"><img src="objects/Cuchilla.png" alt="Cuchilla"></div>
-                <div class="item"><img src="objects/Dagger.png" alt="Daga"></div>
-                <div class="item"><img src="objects/Fusil_1.png" alt="Fusil"></div>
-                <div class="item"><img src="objects/Fusil_2.png" alt="Fusil 2"></div>
-                <div class="item"><img src="objects/Pistola.png" alt="Pistola"></div>
-                <div class="item"><img src="objects/Katana.png" alt="Katana"></div>
-            </div>
+            <h3>Carrito</h3>
+            <div id="inventory-container"></div>
         </footer>
     </section>
+    
+    <!-- ESCENA 3 -->
 
     <section id="scene-3" class="scene">
         <header>
-            <h1>Escena 3</h1>
+            <h1 id="titulo">Estado Actualizado</h1>
         </header>
 
-        <p></p>
+        <div id="jugador-escena-3">
+            <img src="./AventuraJS/characters/Personaje_Principal.png" alt="Personaje Principal">
+            <h2>Marilynn</h2>
+        </div>
 
-        <button id="btn-to-scene-1">Volver al inicio</button>
+        <div id="estadisticas-escena-3">
+            <div><p>Ataque Total: <span id="ataque-total">0</span></p></div>
+            <div><p>Defensa Total: <span id="defensa-total">0</span></p></div>
+            <div><p>Vida Total: <span id="vida-total">100</span></p></div>
+        </div>
+
+        <div id="inventario-escena-3">
+            <h3>Inventario</h3>
+            <div id="inventory-display"></div>
+        </div>
+
+        <button id="btn-to-scene-4">A la Batalla</button>
+    </section>
+
+<!-- ESCENA 4 -->
+
+    <section id="scene-4" class="scene">
+        <header>
+            <h1 id="titulo">Enemigos Detectados</h1>
+        </header>
+
+        <main>
+            <div class="grid-enemigos" id="enemigos-grid"></div>
+        </main>
+
+        <button id="btn-to-scene-5">Comenzar Batallas</button>
+    </section>
+
+    <!-- ESCENA 5 -->
+
+    <section id="scene-5" class="scene">
+        <header>
+            <h1 id="titulo">¡Combate!</h1>
+        </header>
+
+        <main>
+            <div id="arena-batalla">
+                <div class="combatiente" id="jugador-combate">
+                    <img id="jugador-combate-avatar" src="./AventuraJS/characters/Personaje_Principal.png" alt="Jugador">
+                    <div class="info-combate">
+                        <h3 id="jugador-combate-nombre">Marilynn</h3>
+                        <div class="barra-vida">
+                            <div id="player-health-bar" class="relleno-vida"></div>
+                        </div>
+                        <p id="player-combat-health">100 / 100</p>
+                    </div>
+                </div>
+
+                <div class="separador-vs">VS</div>
+
+                <div class="combatiente" id="enemigo-combate">
+                    <img id="enemigo-combate-avatar" src="./AventuraJS/characters/Enemigo_1.png" alt="Enemigo">
+                    <div class="info-combate">
+                        <h3 id="enemigo-combate-nombre">Enemigo</h3>
+                        <div class="barra-vida">
+                            <div id="enemy-health-bar" class="relleno-vida"></div>
+                        </div>
+                        <p id="enemy-combat-health">100 / 100</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="battle-log"></div>
+
+            <div id="battle-result" class="hidden"></div>
+        </main>
+
+        <footer>
+            <button id="btn-continue-battle" class="hidden">Continuar</button>
+            <button id="btn-to-scene-6" class="hidden">Ver Resultados</button>
+        </footer>
+    </section>
+
+    <!-- ESCENA 6 -->
+
+    <section id="scene-6" class="scene">
+        <header>
+            <h1 id="titulo">Aventura Completada</h1>
+        </header>
+
+        <main>
+            <div id="tarjeta-final">
+                <div id="mostrar-rango">
+                    <h2 id="player-rank">VETERANO</h2>
+                    <div class="icono-rango">🏆</div>
+                </div>
+
+                <div id="estadisticas-finales">
+                    <div><p>Puntuación Final: <span id="final-points">0</span></p></div>
+                    <div><p>Enemigos Derrotados: <span id="enemies-defeated">0</span></p></div>
+                    <div><p>Jefes Derrotados: <span id="bosses-defeated">0</span></p></div>
+                </div>
+
+                <div id="jugador-final">
+                    <img src="./AventuraJS/characters/Personaje_Principal.png" alt="Avatar">
+                    <h3>Marilynn</h3>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <button id="btn-restart">Jugar de Nuevo</button>
+        </footer>
     </section>
 
 </body>
+
 </html>
