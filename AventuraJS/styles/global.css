@@ -5,9 +5,10 @@
 }
 
 :root {
-  --color-primary: #2b2888;
-  --color-secondary: #c2baba;
-  --color-accent: rgb(186, 0, 180);
+  --color-primary: #2B2888;
+  --color-accent: #BA00B4;
+  --color-black: #272932;
+  --color-white: #D1C5C0;
 }
 
 body {

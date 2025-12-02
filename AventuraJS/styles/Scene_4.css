@@ -1,7 +1,7 @@
 #scene-4 {
     width: 100%;
     min-height: 100vh;
-    background: #c62828;
+    background: var(--color-primary);
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -22,7 +22,7 @@
 }
 
 .grid-enemigos {
-    background: rgba(0, 0, 0, 0.4);
+    background: var(--color-white);
     padding: 30px;
     border-radius: 15px;
     width: 100%;
@@ -33,8 +33,7 @@
 }
 
 .enemy-card {
-    background: rgba(198, 40, 40, 0.3);
-    border: 3px solid #ff5252;
+    border: 3px solid var(--color-black);
     border-radius: 15px;
     padding: 20px;
     text-align: center;
@@ -43,11 +42,6 @@
     flex-direction: column;
     align-items: center;
     gap: 12px;
-}
-
-.enemy-card.boss {
-    border-color: #ffd700;
-    background: rgba(255, 215, 0, 0.2);
 }
 
 .enemy-card.boss::after {
@@ -75,7 +69,7 @@
 
 .enemy-card h3 {
     font-size: 1.3rem;
-    color: #ffeb3b;
+    color: black;
 }
 
 .enemy-stats {
@@ -95,7 +89,7 @@
 }
 
 .enemy-stat span {
-    color: #ffeb3b;
+    color: white;
     font-weight: bold;
 }
 
@@ -103,7 +97,7 @@
     padding: 15px 40px;
     font-size: 1.2rem;
     font-weight: bold;
-    background: #ff5252;
+    background: var(--color-accent);
     color: white;
     border: 3px solid black;
     border-radius: 10px;

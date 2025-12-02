@@ -1,5 +1,5 @@
 #scene-2 {
-    background: linear-gradient(135deg, var(--color-primary) 0%, #1a1560 100%);
+    background: var(--color-primary);
     height: 100vh;
     padding: 20px;
     display: flex;
@@ -17,13 +17,6 @@
     color: white;
     font-size: 2.5rem;
     letter-spacing: 3px;
-}
-
-#discount-message {
-    color: #ffeb3b;
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-top: 10px;
 }
 
 #scene-2 main {
@@ -58,22 +51,8 @@
     align-content: start;
 }
 
-.grid-productos::-webkit-scrollbar {
-    width: 10px;
-}
-
-.grid-productos::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-}
-
-.grid-productos::-webkit-scrollbar-thumb {
-    background: var(--color-accent);
-    border-radius: 10px;
-}
-
 .img-store {
-    background: rgba(0, 0, 0, 0.4);
+    background: #00000066;
     border-radius: 12px;
     padding: 20px;
     min-height: 250px;
@@ -111,7 +90,7 @@
 
 .img-store button {
     background: var(--color-accent);
-    border: none;
+    border: 1px solid black;
     color: white;
     padding: 10px 25px;
     border-radius: 8px;
@@ -122,13 +101,10 @@
     margin-top: auto;
 }
 
-.img-store.added {
-    background: rgba(76, 175, 80, 0.3);
-    border: 2px solid #4caf50;
-}
-
 .img-store.added button {
-    background: #f44336;
+    background: var(--color-black);
+    color: white;
+    border: 1px solid white;
 }
 
 #scene-2 #btn-to-scene-3 {
@@ -141,10 +117,15 @@
     font-weight: bold;
     background: var(--color-accent);
     color: white;
-    border: none;
+    border: 3px solid black;
     border-radius: 10px;
     cursor: pointer;
     flex-shrink: 0;
+}
+
+#scene-2 #btn-to-scene-3:hover {
+    transform: scale(1.05);
+    transition: 0.2s ease-in-out;
 }
 
 #scene-2 footer {
@@ -174,9 +155,12 @@
     width: 100px;
     height: 100px;
     border-radius: 10px;
+    border: 1px solid black;
     padding: 5px;
 }
-
+.item:hover {
+transform: scale(1.05);
+}
 .item img {
     width: 100%;
     height: 100%;

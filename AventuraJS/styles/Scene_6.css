@@ -1,7 +1,7 @@
 #scene-6 {
     width: 100%;
     min-height: 100vh;
-    background: linear-gradient(135deg, #6a1b9a 0%, #4a148c 100%);
+    background: var(--color-primary);
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -39,7 +39,7 @@
 
 #player-rank {
     font-size: 3rem;
-    color: #4a148c;
+    color: var(--color-accent);
     margin: 0 0 15px 0;
 }
 
@@ -48,11 +48,11 @@
 }
 
 #mostrar-rango.novato {
-    background: #90a4ae;
+    background: var(--color-white);
 }
 
 #mostrar-rango.novato #player-rank {
-    color: #263238;
+    color: var(--color-black);
 }
 
 #estadisticas-finales {
