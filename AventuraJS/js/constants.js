@@ -114,12 +114,6 @@ export const PRODUCTOS = [
 // ENEMIGOS
 export const ENEMIGOS = [
     {
-        nombre: "Hacker Novato",
-        avatar: "./AventuraJS/enemies/Enemy_1.png",
-        nivelAtaque: 15,
-        vida: 80
-    },
-    {
         nombre: "Kiddie",
         avatar: "./AventuraJS/enemies/Enemy_2.png",
         nivelAtaque: 20,
