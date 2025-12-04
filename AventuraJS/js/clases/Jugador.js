@@ -6,6 +6,7 @@ class Jugador {
         this.puntos = 0;
         this.vida = 100;
         this.vidaMaxima = 100;
+        this.dinero = 500;
         this.inventario = [];
     }
 
@@ -55,6 +56,29 @@ class Jugador {
             }
         }
         return total;
+    }
+    //MODIFICACION - Dinero 
+    obtenerDinetoTotal() {
+        let total = this.dinero;
+        for (let i = 0; i < this.inventario.length; i++) {
+            if (total < 0) {
+                alert("No tienes suficiente dinero.")
+            } else if (this.inventario[i].tipo === "Consumible" || this.inventario[i].tipo === "Arma" || this.inventario[i].tipo === "Armadura") {
+                total -= this.inventario[i].precio;
+            }
+        }
+        return total;
+    }
+
+    obtenerDineroEnemigos() {
+        let total = this.dinero;
+        let enemigosDerrotados = 0
+        let jefesDerrotados = 0
+        if (enemigosDerrotados[i].tipo === "ENEMIGO") {
+            total += 5
+        } else if (jefesDerrotados[i].tipo === "JEFES") {
+            total += 10
+        }
     }
 
     reiniciar() {

@@ -18,7 +18,7 @@
 
 <body>
 
-<!-- ESCENA 1 -->
+    <!-- ESCENA 1 -->
 
     <section id="scene-1" class="scene active">
         <header>
@@ -31,22 +31,38 @@
         </div>
 
         <div id="estadisticas-escena-1">
-            <div><p>Ataque: <span id="ataque-inicial">0</span></p></div>
-            <div><p>Defensa: <span id="defensa-inicial">0</span></p></div>
-            <div><p>Puntos: <span id="puntos-inicial">0</span></p></div>
-            <div><p>Vida: <span id="vida-inicial">100</span></p></div>
+            <form>
+                <div>
+                    <p>Ataque: <span id="ataque-inicial"></span>
+                        <input type="number" name="ataque" id="numero-ataque">
+                    </p>
+                </div>
+                <div>
+                    <p>Defensa: <span id="defensa-inicial"></span>
+                        <input type="number" name="defensa" id="numero-defensa">
+                    </p>
+                </div>
+                <div>
+                    <p>Puntos: <span id="puntos-inicial">0</span></p>
+                </div>
+                <div>
+                    <p>Vida: <span id="vida-inicial">100</span></p>
+                </div>
+                <div>
+                    <p>Dinero: <span id="dinero-inicial">500</span></p>
+                </div>
+                <button onclick="validarPuntos()" id="button-crear">Crear</button>
+            </form>
         </div>
-
         <button id="btn-to-scene-2">Continuar</button>
     </section>
 
-<!-- ESCENA 2 -->
+    <!-- ESCENA 2 -->
 
     <section id="scene-2" class="scene">
         <header>
             <h1>MERCADO</h1>
         </header>
-
         <main>
             <section class="contenedor-mercado">
                 <div class="grid-productos" id="productos-grid"></div>
@@ -59,7 +75,7 @@
             <div id="inventory-container"></div>
         </footer>
     </section>
-    
+
     <!-- ESCENA 3 -->
 
     <section id="scene-3" class="scene">
@@ -73,9 +89,18 @@
         </div>
 
         <div id="estadisticas-escena-3">
-            <div><p>Ataque Total: <span id="ataque-total">0</span></p></div>
-            <div><p>Defensa Total: <span id="defensa-total">0</span></p></div>
-            <div><p>Vida Total: <span id="vida-total">100</span></p></div>
+            <div>
+                <p>Ataque Total: <span id="ataque-total">0</span></p>
+            </div>
+            <div>
+                <p>Defensa Total: <span id="defensa-total">0</span></p>
+            </div>
+            <div>
+                <p>Vida Total: <span id="vida-total">100</span></p>
+            </div>
+            <div>
+                <p>Dinero Restante: <span id="dinero-total">100</span></p>
+            </div>
         </div>
 
         <div id="inventario-escena-3">
@@ -86,7 +111,7 @@
         <button id="btn-to-scene-4">A la Batalla</button>
     </section>
 
-<!-- ESCENA 4 -->
+    <!-- ESCENA 4 -->
 
     <section id="scene-4" class="scene">
         <header>
@@ -110,7 +135,8 @@
         <main>
             <div id="arena-batalla">
                 <div class="combatiente" id="jugador-combate">
-                    <img id="jugador-combate-avatar" src="./AventuraJS/characters/Personaje_Principal.png" alt="Jugador">
+                    <img id="jugador-combate-avatar" src="./AventuraJS/characters/Personaje_Principal.png"
+                        alt="Jugador">
                     <div class="info-combate">
                         <h3 id="jugador-combate-nombre">Marilynn</h3>
                         <div class="barra-vida">
@@ -160,12 +186,19 @@
                 </div>
 
                 <div id="estadisticas-finales">
-                    <div><p>Puntuación Final: <span id="final-points">0</span></p></div>
-                    <div><p>Enemigos Derrotados: <span id="enemies-defeated">0</span></p></div>
-                    <div><p>Jefes Derrotados: <span id="bosses-defeated">0</span></p></div>
+                    <div>
+                        <p>Puntuación Final: <span id="final-points">0</span></p>
+                    </div>
+                    <div>
+                        <p>Enemigos Derrotados: <span id="enemies-defeated">0</span></p>
+                    </div>
+                    <div>
+                        <p>Jefes Derrotados: <span id="bosses-defeated">0</span></p>
+                    </div>
+                    <div>
+                        <p>Dinero: <span id="dinero-total">0</span></p>
+                    </div>
                 </div>
-
-            
             </div>
         </main>
 

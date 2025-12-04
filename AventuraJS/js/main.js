@@ -14,22 +14,22 @@ let enemigoActualIndex = 0;
 let enemigosDerrotados = 0;
 let jefesDerrotados = 0;
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     inicializarEscena1();
-    
     // Escena 1 --> Escena 2
     const botonEscena2 = document.getElementById("btn-to-scene-2");
     if (botonEscena2) {
-        botonEscena2.addEventListener("click", function() {
+        botonEscena2.addEventListener("click", function () {
             cargarMercado();
             showScene("scene-2");
         });
+
     }
 
     // Escena 2 --> Escena 3
     const botonEscena3 = document.getElementById("btn-to-scene-3");
     if (botonEscena3) {
-        botonEscena3.addEventListener("click", function() {
+        botonEscena3.addEventListener("click", function () {
             if (jugador.inventario.length === 0) {
                 alert("¡Debes comprar al menos un objeto!");
                 return;
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Escena 3 --> Escena 4
     const botonEscena4 = document.getElementById("btn-to-scene-4");
     if (botonEscena4) {
-        botonEscena4.addEventListener("click", function() {
+        botonEscena4.addEventListener("click", function () {
             cargarEnemigos();
             showScene("scene-4");
         });
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Escena 4 --> Escena 5
     const botonEscena5 = document.getElementById("btn-to-scene-5");
     if (botonEscena5) {
-        botonEscena5.addEventListener("click", function() {
+        botonEscena5.addEventListener("click", function () {
             iniciarBatallas();
             showScene("scene-5");
         });
@@ -60,22 +60,43 @@ document.addEventListener("DOMContentLoaded", function() {
     // Boton reiniciar juego
     const botonReiniciar = document.getElementById("btn-restart");
     if (botonReiniciar) {
-        botonReiniciar.addEventListener("click", function() {
+        botonReiniciar.addEventListener("click", function () {
             reiniciarJuego();
         });
     }
 });
 
+//MODIFICACION "Formulario para crear al jugador"
+const buttonCrear = document.getElementById("button-crear")
+buttonCrear.addEventListener("click", validarPuntos)
+
+//Funcion para validar los puntos para crear el personaje
+function validarPuntos() {
+    const ataque = document.getElementById("numero-ataque");
+    const defensa = document.getElementById("numero-defensa");
+    inputAtaque = ataque.input
+    const puntosVida = jugador.vida;
+    if ((ataque + defensa) > 10 || (ataque + defensa + puntosVida) > 110) {
+        alert("Error")
+    } else {
+        cargarMercado();
+        showScene("scene-2");
+    }
+}
+
 // Estadisticas personaje principal
 function inicializarEscena1() {
-    document.getElementById("ataque-inicial").textContent = jugador.obtenerAtaqueTotal();
-    document.getElementById("defensa-inicial").textContent = jugador.obtenerDefensaTotal();
+    document.getElementById("numero-ataque").textContent = jugador.obtenerAtaqueTotal();
+    document.getElementById("numero-defensa").textContent = jugador.obtenerDefensaTotal();
     document.getElementById("puntos-inicial").textContent = jugador.puntos;
     document.getElementById("vida-inicial").textContent = jugador.vida;
+    document.getElementById("dinero-total").textContent = jugador.dinero;
 }
 
 // Carga todos los productos en el mercado
 function cargarMercado() {
+    document.getElementById("dinero-total").textContent = jugador.dinero;
+
     const productosGrid = document.getElementById("productos-grid");
     productosGrid.innerHTML = "";
 
@@ -86,7 +107,7 @@ function cargarMercado() {
     // Recorrer cada producto y crear su tarjeta
     for (let i = 0; i < PRODUCTOS.length; i++) {
         const producto = PRODUCTOS[i];
-        
+
         const productoDiv = document.createElement("div");
         productoDiv.classList.add("img-store");
 
@@ -97,7 +118,7 @@ function cargarMercado() {
         }
 
         // Convertir céntimos a euros
-        const precioEnEuros = (precioFinal / 100).toFixed(2);
+        const precioEnEuros = (precioFinal);
 
         // Crear el HTML de la tarjeta del producto
         productoDiv.innerHTML = `
@@ -119,7 +140,7 @@ function inicializarBotonesCompra() {
 
     for (let i = 0; i < botones.length; i++) {
         const boton = botones[i];
-        boton.addEventListener("click", function(evento) {
+        boton.addEventListener("click", function (evento) {
             evento.preventDefault();
             const index = parseInt(boton.dataset.index);
             comprarProducto(index, boton);
@@ -129,7 +150,7 @@ function inicializarBotonesCompra() {
 
 function comprarProducto(index, boton) {
     const producto = PRODUCTOS[index];
-    
+
     if (!producto) {
         return;
     }
@@ -146,7 +167,7 @@ function comprarProducto(index, boton) {
                 break;
             }
         }
-        
+
         // Si lo encontramos, lo elimino
         if (posicionEnInventario !== -1) {
             jugador.inventario.splice(posicionEnInventario, 1);
@@ -191,7 +212,7 @@ function agregarAlFooter(producto) {
 function quitarDelFooter(nombreProducto) {
     const inventario = document.getElementById("inventory-container");
     const item = inventario.querySelector(`[data-nombre="${nombreProducto}"]`);
-    
+
     if (item) {
         item.remove();
     }
@@ -202,6 +223,7 @@ function actualizarEscena3() {
     document.getElementById("ataque-total").textContent = jugador.obtenerAtaqueTotal();
     document.getElementById("defensa-total").textContent = jugador.obtenerDefensaTotal();
     document.getElementById("vida-total").textContent = jugador.obtenerVidaTotal();
+    document.getElementById("dinero-total").textContent = jugador.obtenerDinetoTotal();
 
     const inventoryDisplay = document.getElementById("inventory-display");
     inventoryDisplay.innerHTML = "";
@@ -209,7 +231,7 @@ function actualizarEscena3() {
     // Mostrar cada producto del inventario
     for (let i = 0; i < jugador.inventario.length; i++) {
         const producto = jugador.inventario[i];
-        
+
         const item = document.createElement("div");
         item.classList.add("item");
 
@@ -227,11 +249,11 @@ function actualizarEscena3() {
 function cargarEnemigos() {
     // Juntar enemigos normales y jefes en un solo array
     enemigosActuales = [];
-    
+
     for (let i = 0; i < ENEMIGOS.length; i++) {
         enemigosActuales.push(ENEMIGOS[i]);
     }
-    
+
     for (let i = 0; i < JEFES.length; i++) {
         enemigosActuales.push(JEFES[i]);
     }
@@ -242,10 +264,10 @@ function cargarEnemigos() {
     // Crear tarjeta para cada enemigo
     for (let i = 0; i < enemigosActuales.length; i++) {
         const enemigo = enemigosActuales[i];
-        
+
         const enemigoCard = document.createElement("div");
         enemigoCard.classList.add("enemy-card");
-        
+
         // Verificar si es un jefe
         let esJefe = false;
         for (let j = 0; j < JEFES.length; j++) {
@@ -254,7 +276,7 @@ function cargarEnemigos() {
                 break;
             }
         }
-        
+
         if (esJefe) {
             enemigoCard.classList.add("boss");
         }
@@ -288,24 +310,24 @@ function iniciarBatallaConEnemigo(index) {
         mostrarResultadoFinal();
         return;
     }
-    
+
     const enemigo = enemigosActuales[index];
-    
+
     document.getElementById("jugador-combate-nombre").textContent = jugador.nombre;
     document.getElementById("jugador-combate-avatar").src = jugador.avatar;
     document.getElementById("enemigo-combate-nombre").textContent = enemigo.nombre;
     document.getElementById("enemigo-combate-avatar").src = enemigo.avatar;
-    
+
     const vidaTotal = jugador.obtenerVidaTotal();
     actualizarBarraVida("player", vidaTotal, vidaTotal);
     actualizarBarraVida("enemy", enemigo.vida, enemigo.vida);
-    
+
     // Limpiar elementos anteriores
     document.getElementById("battle-log").innerHTML = "";
     document.getElementById("battle-result").classList.add("hidden");
     document.getElementById("btn-continue-battle").classList.add("hidden");
     document.getElementById("btn-to-scene-6").classList.add("hidden");
-    
+
     // Reiniciar y activar las animaciones de entrada
     const jugadorCombate = document.getElementById("jugador-combate");
     const enemigoCombate = document.getElementById("enemigo-combate");
@@ -313,12 +335,12 @@ function iniciarBatallaConEnemigo(index) {
     jugadorCombate.style.animation = "none";
     enemigoCombate.style.animation = "none";
 
-    setTimeout(function() {
+    setTimeout(function () {
         jugadorCombate.style.animation = "slideInLeft 0.8s ease-out";
         enemigoCombate.style.animation = "slideInRight 0.8s ease-out";
     }, 10);
 
-    setTimeout(function() {
+    setTimeout(function () {
         const resultado = combate(enemigo, jugador);
         mostrarResultadoBatalla(resultado, enemigo);
     }, 1300);
@@ -327,11 +349,11 @@ function iniciarBatallaConEnemigo(index) {
 // Muestra el resultado de la batalla
 function mostrarResultadoBatalla(resultado, enemigo) {
     const battleResult = document.getElementById("battle-result");
-    
+
     // Si el jugador gana
     if (resultado.ganador === "jugador") {
         jugador.sumarPuntos(resultado.puntos);
-        
+        jugador.obtenerDineroEnemigos()
         // Verificar si el enemigo derrotado era un jefe
         let esJefe = false;
         for (let i = 0; i < JEFES.length; i++) {
@@ -340,16 +362,16 @@ function mostrarResultadoBatalla(resultado, enemigo) {
                 break;
             }
         }
-        
+
         if (esJefe) {
             jefesDerrotados = jefesDerrotados + 1;
         } else {
             enemigosDerrotados = enemigosDerrotados + 1;
         }
-        
+
         // Actualizar barra de vida del enemigo a 0
         actualizarBarraVida("enemy", 0, enemigo.vida);
-        
+
         // Mostrar mensaje de victoria
         battleResult.classList.remove("hidden");
         battleResult.classList.remove("defeat");
@@ -358,31 +380,32 @@ function mostrarResultadoBatalla(resultado, enemigo) {
             <p>Has derrotado a ${enemigo.nombre}</p>
             <p>+${resultado.puntos} puntos</p>
             <p>Puntuación total: ${jugador.puntos}</p>
+            <p>Dinero total: ${jugador.dinero}</p>
         `;
-        
+
         // Pasar al siguiente enemigo
         enemigoActualIndex = enemigoActualIndex + 1;
-        
+
         // Verificar si quedan más enemigos
         if (enemigoActualIndex < enemigosActuales.length) {
             // Mostrar botón para continuar a la siguiente batalla
             const btnContinue = document.getElementById("btn-continue-battle");
             btnContinue.classList.remove("hidden");
-            btnContinue.onclick = function() {
+            btnContinue.onclick = function () {
                 btnContinue.classList.add("hidden");
                 iniciarBatallaConEnemigo(enemigoActualIndex);
             };
         } else {
             const btnFinal = document.getElementById("btn-to-scene-6");
             btnFinal.classList.remove("hidden");
-            btnFinal.onclick = function() {
+            btnFinal.onclick = function () {
                 mostrarResultadoFinal();
             };
         }
     } else {
         // Si el jugador pierde
         actualizarBarraVida("player", 0, jugador.obtenerVidaTotal());
-        
+
         battleResult.classList.remove("hidden");
         battleResult.classList.add("defeat");
         battleResult.innerHTML = `
@@ -390,11 +413,11 @@ function mostrarResultadoBatalla(resultado, enemigo) {
             <p>Has sido derrotado por ${enemigo.nombre}</p>
             <p>Puntuación final: ${jugador.puntos}</p>
         `;
-        
+
         // Mostrar boton para ir al resultado final
         const btnFinal = document.getElementById("btn-to-scene-6");
         btnFinal.classList.remove("hidden");
-        btnFinal.onclick = function() {
+        btnFinal.onclick = function () {
             mostrarResultadoFinal();
         };
     }
@@ -404,39 +427,41 @@ function mostrarResultadoBatalla(resultado, enemigo) {
 function actualizarBarraVida(tipo, vidaActual, vidaMaxima) {
     // Calcular el porcentaje de vida
     let porcentaje = (vidaActual / vidaMaxima) * 100;
-    
+
     if (porcentaje < 0) {
         porcentaje = 0;
     }
-    
+
     // Actualizar la barra visual
     document.getElementById(tipo + "-health-bar").style.width = porcentaje + "%";
-    
+
     // Actualizar el texto
     let vidaMostrar = Math.floor(vidaActual);
     if (vidaMostrar < 0) {
         vidaMostrar = 0;
     }
-    
+
     document.getElementById(tipo + "-combat-health").textContent = vidaMostrar + " / " + vidaMaxima;
 }
 
 // Muestra la pantalla final con el rango del jugador
 function mostrarResultadoFinal() {
     showScene("scene-6");
-    
+
     // Calcular el rango del jugador
     const rango = distinguirJugador(jugador.puntos);
-    
+
     // Actualizar los datos en pantalla
     document.getElementById("player-rank").textContent = rango.toUpperCase();
     document.getElementById("final-points").textContent = jugador.puntos;
     document.getElementById("enemies-defeated").textContent = enemigosDerrotados;
     document.getElementById("bosses-defeated").textContent = jefesDerrotados;
-    
+    document.getElementById("dinero-total").textContent = jugador.obtenerDineroEnemigos;
+
+
     // Cambiar el estilo según el rango
     const rankDisplay = document.getElementById("mostrar-rango");
-    
+
     if (rango === "Novato") {
         rankDisplay.classList.add("novato");
     } else {
@@ -450,7 +475,7 @@ function lanzarConfeti() {
     const duracion = 1500;
     const fin = Date.now() + duracion;
 
-    const intervalo = setInterval(function() {
+    const intervalo = setInterval(function () {
         if (Date.now() > fin) {
             clearInterval(intervalo);
             return;
