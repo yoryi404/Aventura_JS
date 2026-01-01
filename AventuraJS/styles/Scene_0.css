@@ -1,0 +1,173 @@
+#scene-0 {
+    width: 100%;
+    min-height: 100vh;
+    background: var(--color-primary);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+#scene-0 header {
+    width: 100%;
+    text-align: center;
+}
+
+#scene-0 header h1 {
+    color: white;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+}
+
+#form-personaje {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-group label {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+.form-group input[type="text"] {
+    padding: 12px;
+    font-size: 1rem;
+    border: 2px solid var(--color-primary);
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-group input[type="text"]:focus {
+    border-color: var(--color-accent);
+}
+
+.input-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-control {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: var(--color-accent);
+    color: white;
+    border: 2px solid var(--color-black);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.btn-control:hover {
+    transform: scale(1.1);
+}
+
+.btn-control:active {
+    transform: scale(0.95);
+}
+
+.form-group input[type="number"] {
+    flex: 1;
+    padding: 12px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    border: 2px solid var(--color-primary);
+    border-radius: 8px;
+    background: #f5f5f5;
+}
+
+.error-message {
+    font-size: 0.9rem;
+    color: #f44336;
+    min-height: 20px;
+}
+
+.puntos-info {
+    background: rgba(194, 186, 186, 0.3);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.puntos-info p {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--color-black);
+    margin: 5px 0;
+}
+
+.puntos-info span {
+    color: var(--color-accent);
+    font-size: 1.2rem;
+}
+
+#btn-crear-personaje {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background: var(--color-accent);
+    color: white;
+    border: 3px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+#btn-crear-personaje:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 720px) {
+    #scene-0 header h1 {
+        font-size: 2rem;
+    }
+
+    #form-personaje {
+        padding: 25px;
+    }
+
+    .form-group label {
+        font-size: 1rem;
+    }
+
+    .btn-control {
+        width: 35px;
+        height: 35px;
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 360px) {
+    #scene-0 header h1 {
+        font-size: 1.5rem;
+    }
+
+    #form-personaje {
+        padding: 20px;
+    }
+
+    .btn-control {
+        width: 30px;
+        height: 30px;
+        font-size: 1.1rem;
+    }
+}
