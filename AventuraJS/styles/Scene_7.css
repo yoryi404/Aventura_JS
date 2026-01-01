@@ -1,0 +1,191 @@
+#scene-7 {
+    width: 100%;
+    min-height: 100vh;
+    background: var(--color-primary);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+#scene-7 header {
+    width: 100%;
+    text-align: center;
+}
+
+#scene-7 header h1 {
+    color: white;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+}
+
+#scene-7 main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#ranking-container {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 800px;
+    max-height: 600px;
+    overflow: hidden;
+}
+
+#tabla-ranking {
+    width: 100%;
+    border-collapse: collapse;
+    display: block;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+#tabla-ranking thead {
+    position: sticky;
+    top: 0;
+    background: var(--color-accent);
+    z-index: 10;
+}
+
+#tabla-ranking thead th {
+    padding: 15px;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: white;
+    border: 2px solid var(--color-black);
+}
+
+#tabla-ranking tbody {
+    display: block;
+    max-height: 440px;
+    overflow-y: auto;
+}
+
+#tabla-ranking tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+#tabla-ranking tbody tr:nth-child(even) {
+    background: #f5f5f5;
+}
+
+#tabla-ranking tbody tr:nth-child(odd) {
+    background: white;
+}
+
+#tabla-ranking tbody td {
+    padding: 12px;
+    text-align: center;
+    font-size: 1rem;
+    color: var(--color-black);
+    border: 1px solid #ddd;
+}
+
+#tabla-ranking tbody tr:hover {
+    background: rgba(186, 0, 180, 0.1);
+    transition: background 0.3s;
+}
+
+#tabla-ranking thead tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+#scene-7 footer {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+#scene-7 button {
+    padding: 15px 50px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    background: var(--color-accent);
+    color: white;
+    border: 3px solid black;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+#scene-7 button:hover {
+    transform: scale(1.05);
+}
+
+#tabla-ranking tbody::-webkit-scrollbar {
+    width: 8px;
+}
+
+#tabla-ranking tbody::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+#tabla-ranking tbody::-webkit-scrollbar-thumb {
+    background: var(--color-accent);
+    border-radius: 10px;
+}
+
+#tabla-ranking tbody::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary);
+}
+
+@media (max-width: 720px) {
+    #scene-7 header h1 {
+        font-size: 2rem;
+    }
+
+    #ranking-container {
+        padding: 20px;
+    }
+
+    #tabla-ranking thead th {
+        padding: 10px;
+        font-size: 0.95rem;
+    }
+
+    #tabla-ranking tbody td {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    #scene-7 button {
+        padding: 12px 40px;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 360px) {
+    #scene-7 header h1 {
+        font-size: 1.5rem;
+    }
+
+    #ranking-container {
+        padding: 15px;
+    }
+
+    #tabla-ranking thead th {
+        padding: 8px;
+        font-size: 0.85rem;
+    }
+
+    #tabla-ranking tbody td {
+        padding: 8px;
+        font-size: 0.8rem;
+    }
+
+    #scene-7 button {
+        padding: 10px 30px;
+        font-size: 1rem;
+    }
+}
