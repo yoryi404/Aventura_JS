@@ -5,3 +5,5 @@ class Jefe extends Enemigo {
         this.multiplicador = multiplicador;
     }
 }
+
+export default Jefe;

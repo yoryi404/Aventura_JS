@@ -6,3 +6,5 @@ class Enemigo {
         this.vida = vida;
     }
 }
+
+export default Enemigo;
